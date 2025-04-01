@@ -16,11 +16,11 @@ public class Lab6
      * @param n
      * @return
      */
-    public long SW_Recursive(int m, int n)
+    public long SW_Recursive(final int m, final int n)
     {
-        return (m > 0 && n > 0)
-            ? (SW_Recursive(--m, n) + SW_Recursive(m, --n))
-            : 1L;
+        return (m == 0 || n == 0)
+            ? 1L
+            : SW_Recursive(m - 1, n) + SW_Recursive(m, n - 1);
     }
 
     /**
@@ -35,9 +35,7 @@ public class Lab6
      */
     public long SW_DynamicProg(final int m, final int n)
     {
-        long[] results = new long[n];
-
-        results[0] = 1;
+        long[] results = new long[n]; results[0] = 1;
 
         for (int i = 0; i < m; i ++)
         {

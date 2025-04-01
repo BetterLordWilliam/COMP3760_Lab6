@@ -4,7 +4,7 @@ public class Lab6_Driver
     {
         Lab6 l6 = new Lab6();
         
-        l6.RunRecursive(0, 10);
+        l6.RunRecursive(0, 5);
         l6.RunDynamicProg(20, 24);
     }    
 }
