@@ -35,19 +35,19 @@ public class Lab6
      */
     public long SW_DynamicProg(final int m, final int n)
     {
-        long[] results = new long[n + 1];
+        long[] results = new long[n];
 
         results[0] = 1;
 
-        for (int i = 0; i <= m; i ++)
+        for (int i = 0; i < m; i ++)
         {
-            for (int j = 1; j <= n; j++)
+            for (int j = 1; j < n; j++)
             {
                 results[j] += results[j - 1];
             }
         }
 
-        return results[n];
+        return results[n - 1];
     }
 
     /**
@@ -84,7 +84,7 @@ public class Lab6
         long start, end, result, resultTime;
 
         start = System.nanoTime();
-        result = SW_DynamicProg(m, n);
+        result = SW_DynamicProg(m + 1, n + 1); // Add to make it inclusive
         end = System.nanoTime();
 
         resultTime = end - start;
@@ -117,6 +117,4 @@ public class Lab6
     {
         for (; m <= n; m++) RunDynamic(m, m);
     }
-
-
 }
